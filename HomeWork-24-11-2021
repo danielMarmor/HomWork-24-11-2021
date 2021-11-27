@@ -1,0 +1,68 @@
+5.
+בחר עבור כל מצרך בטבלה את המזהה שלו ואת השם שלו
+
+6.
+בחר את כל המצרכים שהכמות שלהם גדולה מ-חמש
+בחר את כל המצרכים שהכמות שלהם שווה ל-שתיים
+בחר את כל המצרכים שהשם שלהם ==BAMBA
+
+7.מחק את המצרכים עם שם == ORANGR
+
+8.עדכון מצרכים. 
+
+9.הוספת שדה MAAVAR לטבלת מצרכים
+
+10.עדכון שדות MAAVAR לפי מזהי המצרכים
+
+11.שליפה מטבלת מצרכים לפי פילטרים לשדו MAAVAR ו-AMMOUNT
+
+12.שליפת מצרכים ומיון לפי סדר עולה, שליפת מצרכים ומיון לפי סדר יורד.
+
+13.יצירת טבלה חדושה BOOKS, הוספת שני ספרים ומחיקת כל הנתונים מהטבלה
+
+14.
+שליפת מספר הרשומות בטבלת מצטרכים
+שליפת הכמות המקסימלית , הממוצעת והמינימלית
+
+15.שליפת המעברים בטבלה ומספר המצרכים שמופיעים בכל מעבר
+16.שליפת נתוני הטבלה ומתן ALIAS SECRET לשדה ID
+17.שליפת המעברים בטבלה אשר בהם מספר המצרכים גדול מ-1 והצגת מספר המצרכים שמופיעים בכל מעבר 
+18.שליפת המצרכים וכן המחיר של כל מצרך (מטבלת PRICES)
+19.SECRET = העלות של כל מצרך (מחיר *כמות)
+20.שליפה של המצרך (מצרכים) מהרשימה בעל(י) המחיר המקסימלי
+
+חלק שני
+1.
+CREATE TABLE STUDENTS (ID INTEGER PRIMARY KEY, NAME TEXT, CITY TEXT, BIRTH INTERGER)
+CREATE TABLE GRADE (ID INTEGER PRIMARY KEY, GRARE INTERGER)
+
+2.
+SELECT STU.ID, STU.NAME, GRD.GRADE
+FROM STUDENTS AS STU JOIN GRADE AS GRD 
+ON STU.ID = GRD.ID
+
+3.
+SELECT AVE(GRD .GRADE)
+FROM STUDENTS AS STU JOIN GRADE AS GRD 
+ON STU.ID = GRADE.ID
+
+4.
+ALTER TABLE GRADE 
+ADD COLUMN EXCELENT TEXT
+
+UPDATE GRADE 
+SET EXCELENT = (CASE WHEN GRADE > 90 THEN 'YES' ELSE 'NO' END)
+
+5.
+SELECT STU.ID, STU.NAME, GRD.GRADE
+FROM STUDENTS AS STU JOIN GRADE AS GRD 
+ON STU.ID = GRADE.ID
+WHERE GRD.GRADE > (SELECT AVE(GRD1 GRADE)
+FROM  GRADE AS GRD1)
+
+6.
+SELECT STU.ID, STU.NAME, GRD.GRADE
+FROM STUDENTS AS STU JOIN GRADE AS GRD 
+ON STU.ID = GRD.ID
+WHERE GRD.GRADE =  (SELECT MAX(GRD1 GRADE)
+FROM  GRADE AS GRD1)
